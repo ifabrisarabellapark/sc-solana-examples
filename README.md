@@ -15,3 +15,9 @@ Set up your development environment to write a Rust smart contract on Solana. In
 ```bash
 cargo build
 ```
+
+### Logging
+During the program execution both the runtime and the program itself are logging statuses and error messages. Export the recommended log mask to format log messages emitted by the program:
+```bash
+export RUST_LOG=solana_runtime::system_instruction_processor=trace,solana_runtime::message_processor=info,solana_bpf_loader=debug,solana_rbpf=debug
+```
