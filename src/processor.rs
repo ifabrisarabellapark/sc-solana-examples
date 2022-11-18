@@ -2,7 +2,7 @@
 
 use borsh::{BorshDeserialize, BorshSerialize};
 use solana_program::{
-    account_info::{AccountInfo},
+    account_info::{AccountInfo, next_account_info},
     log::{sol_log_compute_units, sol_log_params},
     msg,
     entrypoint::ProgramResult,
@@ -28,9 +28,15 @@ pub fn process_instruct(
     instruction_data: &[u8],
 ) -> ProgramResult {
 
+    // iterate through accounts and get account to say hello to    
+    let acc_iter = &mut accounts.iter();
+    let account = next_account_info(acc_iter)?;
 
-    let mut greet = Greetings { counter: 0u32 };
+    // deserialize and borrow a slice of bytes, namely the greeting count, 
+    // next update the count and serialize it back to chain
+    let mut greet = Greetings::try_from_slice(&account.data.borrow())?;
     greet.counter += 1;
+    greet.serialize(&mut &mut account.data.borrow_mut()[..])?;
 
     /*
         LOG EVENTS

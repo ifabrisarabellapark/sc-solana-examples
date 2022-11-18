@@ -1,0 +1,32 @@
+{
+  "name": "event_emitter",
+  "version": "0.0.1",
+  "description": "A Solana program for hellowoeld counting and log event emitting",
+  "main": "index.js",
+  "scripts": {
+    "test": "cargo test-bpf --manifest-path=./Cargo.toml",
+    "rust:build": "cargo-build-bpf --manifest-path=./Cargo.toml --bpf-out-dir=dist/program"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irene-bbox/sc-solana-event-listener.git"
+  },
+  "keywords": [
+    "helloword"
+  ],
+  "author": " <irene@balloonbox.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/irene-bbox/sc-solana-event-listener/issues"
+  },
+  "homepage": "https://github.com/irene-bbox/sc-solana-event-listener#readme",
+  "dependencies": {
+    "@solana/buffer-layout": "3.0.0",
+    "@solana/web3.js": "^1.33.0",
+    "borsh": "^0.7.0",
+    "package.json": "^0.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
