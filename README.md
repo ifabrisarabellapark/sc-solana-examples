@@ -19,11 +19,12 @@ To be able to (a) build and (b) deploy your smart contract you'll need to have i
 
 ## :gear: Build
 ```bash
+# Sanity Checks
 solana --version                                            
 solana-keygen --version                                             # ensure keygen is installed
 solana config get                                                   # ensure devnet path exists
 
-
+# Build contract
 cargo clean                                                         # clean up rust files
 solana config set --url https://api.devnet.solana.com               # declare path to devnet
 solana-keygen pubkey prompt://                                      # (optional) derive a pubkey from a seed phrase and a passphrase
@@ -32,6 +33,8 @@ npm run <SCRIPT_TO_BUILD_SBF>                                       # run a buil
 solana-keygen new -o /Users/irenefabris/.config/solana/id.json      # generate new keypair and save it locally
 solana airdrop 1 <RECIPIENT_ACCOUNT_ADDRESS>                        # airdrop devnet SOL to a wallet address
 solana balance <ACCOUNT_ADDRESS>                                    # check account balance
+
+# Deploy to blockchain
 solana program deploy <PROGRAM_FILEPATH>                            # deploy to location of the program's shared object (the program binary .so)
 solana balance <ACCOUNT_ADDRESS>  
 solana program show <PROGRAM_ID>

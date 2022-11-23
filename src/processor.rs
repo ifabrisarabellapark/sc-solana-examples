@@ -17,9 +17,9 @@ pub struct Greetings {
 
 /*
     Implement program entrypoint. The entrypoint always calls 
-    the instructor processor function (i.e. 'helloworld')
+    the instructor processor function (i.e. 'process_instruct')
     with these 3 params: program_id, accounts, instruction_data.
-    You must declare ALL 3 params them even if unused.
+    You must declare ALL 3 params even if unused.
     Add an _ in front of the variable name, if unused.
  */ 
 pub fn process_instruct(
@@ -41,12 +41,11 @@ pub fn process_instruct(
     /*
         LOG EVENTS
      */
-    // log a string
-    msg!("Print a static string!");
+    // log a public key
+    msg!("The PROGRAM ID is = ");
+    program_id.log();
     // log a formatted string, beware: expensive!
     msg!("Greeted {} time(s)!", greet.counter);
-    // log a public key
-    program_id.log();
     // log all the program's input parameters
     sol_log_params(accounts, instruction_data);
     // log the number of compute units remaining to consume
@@ -54,4 +53,49 @@ pub fn process_instruct(
 
 
     Ok(())
+}
+
+
+
+
+/*
+ * the rest of this file sets up unit tests
+ * execute them running the command:
+ * cargo test --package event_emitter -- --nocapture
+ * Note: 'event_emitter' comes from Cargo.toml's 'name' key
+ */
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::mem;
+    use solana_program::clock::Epoch;
+    
+    #[test]
+    fn count_greeter() {
+        let key = Pubkey::default();
+        let mut lamports = 0u64;
+        let mut data = vec![0; mem::size_of::<u32>()];
+        let program_id = Pubkey::default();
+        let instruction_data: Vec<u8> = Vec::new();
+        let accounts = vec![AccountInfo::new(
+            &key,
+            false,
+            true,
+            &mut lamports,
+            &mut data,
+            &key,
+            false,
+            Epoch::default(),
+        )];
+
+
+        // use .unwrap() for implicit handling of an Option<T>
+        process_instruct(&program_id, &accounts, &instruction_data).unwrap();
+        assert_eq!(Greetings::try_from_slice(&accounts[0].data.borrow()).unwrap().counter,1);
+
+        // greet 3 times
+        process_instruct(&program_id, &accounts, &instruction_data).unwrap();
+        process_instruct(&program_id, &accounts, &instruction_data).unwrap();
+        assert_eq!(Greetings::try_from_slice(&accounts[0].data.borrow()).unwrap().counter,3);
+    }
 }
