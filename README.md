@@ -49,3 +49,10 @@ During the program execution both the runtime and the program itself are logging
 ```bash
 export RUST_LOG=solana_runtime::system_instruction_processor=trace,solana_runtime::message_processor=info,solana_bpf_loader=debug,solana_rbpf=debug
 ```
+
+
+## :test_tube: Tests
+Replace `project_name` with the name of your Rust project, specified in Cargo.toml
+```bash
+cargo test --package <PROJECT_NAME> -- --nocapture
+```
