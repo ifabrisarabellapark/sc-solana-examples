@@ -1,7 +1,7 @@
 [package]
-name = "event_emitter"
+name = "mycalcualtor"
 version = "0.0.1"
-description = "Solana Program to emit test events"
+description = "Solana Program acting as an on-chain calculator"
 authors = ["Irene Fabris <irene@balloonbox.io>"]
 repository = "https://github.com/irene-bbox/sc-solana-event-listener.git"
 license = "Apache-2.0"
@@ -19,5 +19,5 @@ solana-program-test = "1.14.8"
 solana-sdk = "1.14.8"
 
 [lib]
-name = "helloworld"
+name = "mycalculator"
 crate-type = ["cdylib", "lib"]
