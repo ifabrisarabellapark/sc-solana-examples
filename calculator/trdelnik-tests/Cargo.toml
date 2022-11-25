@@ -8,7 +8,8 @@ edition = "2021"
 fehler = "1.0.0"
 rstest = "0.12.0"
 trdelnik-client = "0.1.6"
-anchor-lang = "0.25.0"
+anchor-lang = "0.24.2"
+solana-program = "1.9.3"
 
 [dev-dependencies.program_client]
 path = "../.program_client"
