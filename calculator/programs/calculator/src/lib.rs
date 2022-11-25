@@ -1,4 +1,9 @@
+
+// import all components of the Rust crate called anchor_lang
 use anchor_lang::prelude::*;
+use anchor_lang::solana_program::{
+    entrypoint::ProgramResult,
+};
 
 declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 
@@ -6,20 +11,74 @@ declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 pub mod calculator {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
+    pub fn create(ctx: Context<Create>, init_message: String) -> ProgramResult {
+        let calculator = &mut ctx.accounts.calculator;
+        calculator.greeting = init_message;
         Ok(())
     }
 
-    pub fn create(ctx: Context<Create>, init_message: String) -> ProgramResult {}
-
-    pub fn add(ctx: Context<Addition>, n1: i64, n2: i64) -> ProgreamResult {}
+    pub fn add(ctx: Context<Addition>, n1: i64, n2: i64) -> ProgramResult {
+        let calculator = &mut ctx.accounts.calculator;
+        calculator.result = n1 + n2;
+        Ok(())
+    }
     
-    pub fn multiply(ctx: Context<Multiplication>, n1: i64, n2: i64) -> ProgreamResult {}
+    pub fn multiply(ctx: Context<Multiplication>, n1: i64, n2: i64) -> ProgramResult {
+        let calculator = &mut ctx.accounts.calculator;
+        calculator.result = n1 * n2;
+        Ok(())
+    }
     
-    pub fn subtract(ctx: Context<Subtraction>, n1: i64, n2: i64) -> ProgreamResult {}
+    pub fn subtract(ctx: Context<Subtraction>, n1: i64, n2: i64) -> ProgramResult {
+        let calculator = &mut ctx.accounts.calculator;
+        calculator.result = n1 - n2;
+        Ok(())
+    }
     
-    pub fn divide(ctx: Context<Division>, n1: i64, n2: i64) -> ProgreamResult {}
+    pub fn divide(ctx: Context<Division>, n1: i64, n2: i64) -> ProgramResult {
+        let calculator = &mut ctx.accounts.calculator;
+        calculator.result = n1 / n2;
+        calculator.result = n1 % n2;
+        Ok(())
+    }
 }
 
 #[derive(Accounts)]
-pub struct Initialize {}
+pub struct Create<'info> {
+    #[account(init, payer=user, space=8+64+64+64+64)]
+    pub calculator: Account<'info, Calculator>,
+    #[account(mut)]
+    pub user: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
+#[account]
+pub struct Calculator {
+    pub greeting: String,
+    pub result: i64,
+    pub remainder: i64,
+}
+
+#[derive(Accounts)]
+pub struct Addition<'info> {
+    #[account(mut)]
+    pub calculator: Account<'info, Calculator>,
+}
+
+#[derive(Accounts)]
+pub struct Multiplication<'info> {
+    #[account(mut)]
+    pub calculator: Account<'info, Calculator>,
+}
+
+#[derive(Accounts)]
+pub struct Subtraction<'info> {
+    #[account(mut)]
+    pub calculator: Account<'info, Calculator>,
+}
+
+#[derive(Accounts)]
+pub struct Division<'info> {
+    #[account(mut)]
+    pub calculator: Account<'info, Calculator>,
+}

@@ -1,23 +1,13 @@
-[package]
-name = "mycalcualtor"
-version = "0.0.1"
-description = "Solana Program acting as an on-chain calculator"
-authors = ["Irene Fabris <irene@balloonbox.io>"]
-repository = "https://github.com/irene-bbox/sc-solana-event-listener.git"
-license = "Apache-2.0"
-edition = "2018"
+[workspace]
+members = [
+    "programs/*"
+]
 
-[features]
-no-entrypoint = []
-
-[dependencies]
-borsh = "0.9.3"
-solana-program = "1.14.8"
-
-[dev-dependencies]
-solana-program-test = "1.14.8"
-solana-sdk = "1.14.8"
-
-[lib]
-name = "mycalculator"
-crate-type = ["cdylib", "lib"]
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
+[profile.release.build-override]
+opt-level = 3
+incremental = false
+codegen-units = 1
