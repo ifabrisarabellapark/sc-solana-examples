@@ -82,21 +82,3 @@ pub struct Division<'info> {
     #[account(mut)]
     pub calculator: Account<'info, Calculator>,
 }
-
-
-
-// #[cfg(test)]
-// mod tests {
-//     use super::*;
-
-//     #[test]
-//     fn test_multiply() {
-//         let mut calc = Calculator{
-//             greeting: String::from("Calculator up and running"),
-//             result: 0i64,
-//             remainder: 0i64,
-//         };
-//        let product = multiply(Context<calc>, 3, 3);
-//        assert_eq!(product, 9);
-//     }
-// }

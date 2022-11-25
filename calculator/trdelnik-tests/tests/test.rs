@@ -1,7 +1,38 @@
 use fehler::throws;
 use program_client;
+use calculator::{Calculator, multiply};
 use trdelnik_client::{anyhow::Result, *};
 // @todo: do not forget to import your program crate (also in the ../Cargo.toml)
+
+
+// @todo: design and implement all the logic you need for your fixture(s)
+struct Fixture {
+    client: Client,
+    program: Keypair,
+    state: Keypair,
+    calc: Calculator,
+}
+impl Fixture {
+    fn new() -> Self {
+        Fixture {
+            client: Client::new(system_keypair(0)),
+            program: program_keypair(1),
+            state: keypair(42),
+            calc: Calculator{
+                greeting: String::from("Calculator up and running"),
+                result: 0i64,
+                remainder: 0i64,
+            },
+        }
+    }
+
+    #[throws]
+    async fn deploy(&mut self) {
+        self.client
+            .airdrop(self.client.payer().pubkey(), 5_000_000_000)
+            .await?;
+    }
+}
 
 // @todo: create and deploy your fixture
 #[throws]
@@ -21,25 +52,9 @@ async fn test_happy_path(#[future] init_fixture: Result<Fixture>) {
     assert_eq!(fixture.program, default_fixture.program);
 }
 
-// @todo: design and implement all the logic you need for your fixture(s)
-struct Fixture {
-    client: Client,
-    program: Keypair,
-    state: Keypair,
-}
-impl Fixture {
-    fn new() -> Self {
-        Fixture {
-            client: Client::new(system_keypair(0)),
-            program: program_keypair(1),
-            state: keypair(42),
-        }
-    }
-
-    #[throws]
-    async fn deploy(&mut self) {
-        self.client
-            .airdrop(self.client.payer().pubkey(), 5_000_000_000)
-            .await?;
-    }
+#[trdelnik_test]
+async fn test_multiply(#[future] init_fixture: Result<Fixture>) {
+    let fixture = init_fixture.await?;
+    let product = multiply(fixture.calc.result, 3, 3);
+    assert_eq!(product, 9);
 }
