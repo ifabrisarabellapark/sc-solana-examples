@@ -1,5 +1,5 @@
 # Solana Contract | Event Emitter :satellite:
-A Solana Rust smart contract (or program) that emits log events, says "helloworld", and counts the number of helloworld-calls.
+A Solana Rust smart contract (or program) that emits log events, says "helloworld", and counts the number of helloworld-output.
 
 ---
 
@@ -11,8 +11,8 @@ Set up your development environment to write a Rust smart contract on Solana. In
    (upgrade via `rustup upgrade`)
  - latest [Solana CLI](https://docs.solana.com/cli/install-solana-cli-tools) <br/>
    (v.1.14.7 or later)
- - latest [Ancho](https://www.anchor-lang.com/) framerowk (optional) <br/>
--  (installation guide [her](https://book.anchor-lang.com/getting_started/installation.html?search=#anchor)
+ - latest [Anchor](https://www.anchor-lang.com/) framerowk (optional) <br/>
+   (installation guide [here](https://book.anchor-lang.com/getting_started/installation.html?search=#anchor)
 
 
 To be able to (a) build and (b) deploy your smart contract you'll need to have in your root directory:
