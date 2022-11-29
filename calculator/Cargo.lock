@@ -2096,6 +2096,10 @@ dependencies = [
 [[package]]
 name = "program_client"
 version = "0.1.0"
+dependencies = [
+ "calculator",
+ "trdelnik-client",
+]
 
 [[package]]
 name = "qstring"
@@ -3614,12 +3618,10 @@ dependencies = [
 name = "trdelnik-tests"
 version = "0.1.0"
 dependencies = [
- "anchor-lang",
  "calculator",
  "fehler",
  "program_client",
  "rstest",
- "solana-program",
  "trdelnik-client",
 ]
 

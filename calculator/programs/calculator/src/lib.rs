@@ -8,7 +8,7 @@ use anchor_lang::solana_program::{
 declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 
 #[program]
-pub mod calculator {
+pub mod casio {
     use super::*;
 
     pub fn create(ctx: Context<Create>, init_message: String) -> ProgramResult {
@@ -38,7 +38,7 @@ pub mod calculator {
     pub fn divide(ctx: Context<Division>, n1: i64, n2: i64) -> ProgramResult {
         let calculator = &mut ctx.accounts.calculator;
         calculator.result = n1 / n2;
-        calculator.result = n1 % n2;
+        calculator.remainder = n1 % n2;
         Ok(())
     }
 }

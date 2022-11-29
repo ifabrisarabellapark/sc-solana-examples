@@ -15,6 +15,9 @@ Set up your SOlana Smart contract dev env. Install
    (installation guide [here](https://book.anchor-lang.com/getting_started/installation.html?search=#anchor)
  - latest [Trdelník](https://github.com/Ackee-Blockchain/trdelnik) <br/>
    (`Solana`/`Anchor`/`Trdelnik CLI` version must [coincide](https://github.com/Ackee-Blockchain/trdelnik#supported-versions), or your code won't run)
+ - Rust nightly [toolchain](https://rust-lang.github.io/rustup/concepts/toolchains.html)
+
+> :warning: Trdelnik has a strong dependency on the nightly toolchain of Rust. To install it, run `rustup toolchain install nightly-aarch64-apple-darwin`. If nightly is missing, the **.program_client/src/lib.rs** file will NOT auto-generate.
 
 
 ### Usage - Anchor

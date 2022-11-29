@@ -1,28 +1,24 @@
 use fehler::throws;
-use program_client;
-use calculator::{Calculator, multiply};
+use program_client::{calculator_instruction};
 use trdelnik_client::{anyhow::Result, *};
-// @todo: do not forget to import your program crate (also in the ../Cargo.toml)
+use calculator;
 
 
-// @todo: design and implement all the logic you need for your fixture(s)
+// ------------------------------------- //
+//           Fixture struct              //
+// ------------------------------------- //
 struct Fixture {
     client: Client,
     program: Keypair,
-    state: Keypair,
-    calc: Calculator,
+    mycalculator: Keypair,
 }
+
 impl Fixture {
     fn new() -> Self {
         Fixture {
             client: Client::new(system_keypair(0)),
             program: program_keypair(1),
-            state: keypair(42),
-            calc: Calculator{
-                greeting: String::from("Calculator up and running"),
-                result: 0i64,
-                remainder: 0i64,
-            },
+            mycalculator: keypair(2), //why 42?
         }
     }
 
@@ -32,21 +28,50 @@ impl Fixture {
             .airdrop(self.client.payer().pubkey(), 5_000_000_000)
             .await?;
     }
+
+    #[throws]
+    async fn get_calc(&self) -> calculator::Calculator {
+        self.client.account_data(self.mycalculator.pubkey()).await?
+    }
 }
 
-// @todo: create and deploy your fixture
+
+// ------------------------------------- //
+//             Init Fixture              //
+// ------------------------------------- //
 #[throws]
 #[fixture]
 async fn init_fixture() -> Fixture {
-    let mut fixture = Fixture::new();
-    // @todo: here you can call your <program>::initialize instruction
-    fixture.deploy().await?;
+
+    // create a test fixture
+    let fixture = Fixture::new();
+
+    // deploy a tested program
+    fixture
+        .client
+        .deploy_by_name(&fixture.program, "calculator")
+        .await?;
+
+    // init instruction call
+    calculator_instruction::create(
+        &fixture.client,
+        String::from("Calculator is on!"),
+        fixture.mycalculator.pubkey(),
+        fixture.client.payer().pubkey(),
+        System::id(),
+        Some(fixture.mycalculator.clone()),
+    )
+    .await?;
+
     fixture
 }
 
+
+// ------------------------------------- //
+//              Unit tests               //
+// ------------------------------------- //
 #[trdelnik_test]
 async fn test_happy_path(#[future] init_fixture: Result<Fixture>) {
-    // @todo: add your happy path test scenario and the other test cases
     let default_fixture = Fixture::new();
     let fixture = init_fixture.await?;
     assert_eq!(fixture.program, default_fixture.program);
@@ -54,7 +79,20 @@ async fn test_happy_path(#[future] init_fixture: Result<Fixture>) {
 
 #[trdelnik_test]
 async fn test_multiply(#[future] init_fixture: Result<Fixture>) {
+    let default_fixture = Fixture::new();
     let fixture = init_fixture.await?;
-    let product = multiply(fixture.calc.result, 3, 3);
-    assert_eq!(product, 9);
+
+    calculator_instruction::multiply(
+        &fixture.client,
+        3i64,
+        3i64,
+        fixture.mycalculator.pubkey(),
+        None // since it's a PDA it needs no signature
+    )
+    .await?;
+
+    // check the test result
+    let mycalc = fixture.get_calc().await?;
+    // 3x3 = 9 is true
+    assert_eq!(mycalc.result, 9);
 }
