@@ -34,7 +34,10 @@ solana config set --url https://api.devnet.solana.com               # declare pa
 solana-keygen pubkey prompt://                                      # (optional) derive a pubkey from a seed phrase and a passphrase
 npm install                                                         # install npm dependencies
 npm run <SCRIPT_TO_BUILD_SBF>                                       # run a build script contained in package.json
-solana-keygen new -o /Users/irenefabris/.config/solana/id.json      # generate new keypair and save it locally
+
+solana-keygen new -o /Users/irenefabris/.config/solana/id.json      # generate new keypair and save it locally [adapt the path to your local user]
+solana-keygen pubkey /Users/irenefabris/.config/solana/id.json      # alternatively retrieve an existing keypair
+
 solana airdrop 1 <RECIPIENT_ACCOUNT_ADDRESS>                        # airdrop devnet SOL to a wallet address
 solana balance <ACCOUNT_ADDRESS>                                    # check account balance
 

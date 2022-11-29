@@ -5,7 +5,10 @@ use anchor_lang::solana_program::{
     entrypoint::ProgramResult,
 };
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+// Your program's id
+// Your full program keypair (pubkey & privatekey) is now in `target/deploy`
+// The public key of your keypair IS the program id
+declare_id!("7Gjakg7gAYgCRr7p5RvuGoS1G5EMQxu9U61Swokse5bj");
 
 #[program]
 pub mod casio {

@@ -2,13 +2,13 @@
 seeds = false
 skip-lint = false
 [programs.localnet]
-calculator = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+calculator = "7Gjakg7gAYgCRr7p5RvuGoS1G5EMQxu9U61Swokse5bj"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "/Users/irenefabris/.config/solana/id.json"
 
 [scripts]
