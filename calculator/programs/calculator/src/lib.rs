@@ -8,7 +8,7 @@ use anchor_lang::solana_program::{
 // Your program's id
 // Your full program keypair (pubkey & privatekey) is now in `target/deploy`
 // The public key of your keypair IS the program id
-declare_id!("7Gjakg7gAYgCRr7p5RvuGoS1G5EMQxu9U61Swokse5bj");
+declare_id!("Po1RaS8BEDbNcn5oXsFryAeQ6Wn8fvmE111DJaKCgPC");
 
 #[program]
 pub mod casio {

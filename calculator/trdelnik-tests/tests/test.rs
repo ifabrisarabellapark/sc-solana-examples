@@ -18,7 +18,7 @@ impl Fixture {
         Fixture {
             client: Client::new(system_keypair(0)),
             program: program_keypair(1),
-            mycalculator: keypair(2), //why 42?
+            mycalculator: keypair(42), //why 42?
         }
     }
 
@@ -44,7 +44,12 @@ impl Fixture {
 async fn init_fixture() -> Fixture {
 
     // create a test fixture
-    let fixture = Fixture::new();
+    // let fixture = Fixture::new();
+    let fixture = Fixture {
+        client: Client::new(system_keypair(0)),
+        program: program_keypair(1),
+        mycalculator: keypair(42), //why 42?
+    };
 
     // deploy a tested program
     fixture
@@ -71,15 +76,23 @@ async fn init_fixture() -> Fixture {
 //              Unit tests               //
 // ------------------------------------- //
 #[trdelnik_test]
-async fn test_happy_path(#[future] init_fixture: Result<Fixture>) {
+async fn test_began(#[future] init_fixture: Result<Fixture>) {
     let default_fixture = Fixture::new();
     let fixture = init_fixture.await?;
     assert_eq!(fixture.program, default_fixture.program);
+    assert_eq!(1,1);
 }
 
 #[trdelnik_test]
+async fn test_nine() {
+    let myvar = 9u8;
+    assert_eq!(myvar, 9u8);
+}
+
+#[trdelnik_test]
+#[ignore]
 async fn test_multiply(#[future] init_fixture: Result<Fixture>) {
-    let default_fixture = Fixture::new();
+    // let default_fixture = Fixture::new();
     let fixture = init_fixture.await?;
 
     calculator_instruction::multiply(

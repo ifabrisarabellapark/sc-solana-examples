@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2018"
 
 [dependencies]
-trdelnik-client = "0.1.6"
+trdelnik-client = "0.2.0"
 
 [dependencies.calculator]
 path = "../programs/calculator"
