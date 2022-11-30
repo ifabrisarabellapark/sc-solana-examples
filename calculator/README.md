@@ -27,8 +27,12 @@ Set up your SOlana Smart contract dev env. Install
 
 
 ### :anchor: Anchor
-Create a new workspace running `anchor init <MY_WORKSPACE_NAME>`. Pupulate the project and once ready, deploy it.
 Solana has three main clusters: `mainnet-beta` (real funds), `devnet` (for developers), and `testnet` (mostly for validators). Devnet is a more realistic environment to test your application than localnet. Let's deploy on devnet:
+
+ - obviously, you must first create a new Anchor project, running
+```bash
+anchor init <MY_WORKSPACE_NAME>
+```
 
  - build the smart contract (compiling source code into bytecode) and save your program keypair in target/deploy. Keep this keypair secret. You can reuse it on all clusters.
 ```bash
