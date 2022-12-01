@@ -13,11 +13,11 @@ declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 pub mod tictactoe {
     use super::*;
 
-    pub fn setup_game() -> {
-        //initiat game
+    pub fn setup_game(ctx: Context<SetUpGame>, player_two: Pubkey) -> Result<()> {
+        instructions::setup_game::setup_game(ctx, player_two)
     }
 
-    pub fn play() -> {
-        //establish ruleset
+    pub fn playoff(ctx: Context<Playoff>, tile: Tile) -> Result<()> {
+        instructions::play::playoff(ctx, tile)
     }
 }

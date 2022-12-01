@@ -39,7 +39,7 @@ anchor init <MY_WORKSPACE_NAME>
 anchor build
 ```     
 
- - display the keypair's public key, next cipy it into your declare_id! macro BOTH in lib.rs AND Anchor.toml
+ - display the keypair's public key, next copy it into your declare_id! macro BOTH in lib.rs AND Anchor.toml
 ```bash
 anchor keys list 
 ```                                 
