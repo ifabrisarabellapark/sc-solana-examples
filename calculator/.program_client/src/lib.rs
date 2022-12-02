@@ -1,5 +1,5 @@
 // DO NOT EDIT - automatically generated file
-pub mod calculator_instruction {
+pub mod casio_instruction {
     use trdelnik_client::*;
     use calculator::{Create, Calculator};
     pub static PROGRAM_ID: Pubkey = Pubkey::new_from_array([
