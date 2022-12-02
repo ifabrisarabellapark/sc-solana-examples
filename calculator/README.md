@@ -4,7 +4,7 @@ Construct your own calculator  in the form of a Solana Rust smart contract (or p
 ---
 
 ### :package: Requirements
-Set up your SOlana Smart contract dev env. Install
+Set up your Solana Smart contract dev env. Install
 
  - node.js & npm
  - latest *stable* [Rust](https://rustup.rs/) <br/>

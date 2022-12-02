@@ -4,7 +4,7 @@ use num_derive::*;
 use num_traits::*;
 
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("CzgE1QHdwsigEvPMJXtNHNgEmjKBVhZn3sPHRrU7yKga");
 
 
 #[account]

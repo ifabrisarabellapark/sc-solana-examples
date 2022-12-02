@@ -22,12 +22,22 @@ impl Fixture {
         }
     }
 
+    // #[throws]
+    // async fn deploy(&mut self) {
+    //     self.client
+    //         .airdrop(self.client.payer().pubkey(), 5_000_000_000)
+    //         .await?;
+    // }
     #[throws]
     async fn deploy(&mut self) {
         self.client
             .airdrop(self.client.payer().pubkey(), 5_000_000_000)
             .await?;
+        self.client
+            .deploy_by_name(&self.program.clone(), "BabyYoda")
+            .await?;
     }
+
 
     #[throws]
     async fn get_calc(&self) -> calculator::Calculator {
@@ -45,16 +55,15 @@ async fn init_fixture() -> Fixture {
 
     // create a test fixture
     // let fixture = Fixture::new();
-    let fixture = Fixture {
+    let mut fixture = Fixture {
         client: Client::new(system_keypair(0)),
         program: program_keypair(1),
         mycalculator: keypair(42), //why 42?
     };
 
-    // deploy a tested program
+        // deploy a tested program
     fixture
-        .client
-        .deploy_by_name(&fixture.program, "calculator")
+        .deploy()
         .await?;
 
     // init instruction call
@@ -76,7 +85,7 @@ async fn init_fixture() -> Fixture {
 //              Unit tests               //
 // ------------------------------------- //
 #[trdelnik_test]
-async fn test_began(#[future] init_fixture: Result<Fixture>) {
+async fn test_init(#[future] init_fixture: Result<Fixture>) {
     let default_fixture = Fixture::new();
     let fixture = init_fixture.await?;
     assert_eq!(fixture.program, default_fixture.program);
@@ -85,7 +94,7 @@ async fn test_began(#[future] init_fixture: Result<Fixture>) {
 
 #[trdelnik_test]
 async fn test_nine() {
-    let myvar = 9u8;
+    let myvar = 9;
     assert_eq!(myvar, 9u8);
 }
 

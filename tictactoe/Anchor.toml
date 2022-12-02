@@ -1,14 +1,14 @@
 [features]
 seeds = false
 skip-lint = false
-[programs.localnet]
-tic_tac_toe = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+[programs.devnet]
+tic_tac_toe = "CzgE1QHdwsigEvPMJXtNHNgEmjKBVhZn3sPHRrU7yKga"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "/Users/irenefabris/.config/solana/id.json"
 
 [scripts]

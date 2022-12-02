@@ -7,7 +7,7 @@ pub mod state;
 pub mod instructions;
 
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("CzgE1QHdwsigEvPMJXtNHNgEmjKBVhZn3sPHRrU7yKga");
 
 #[program]
 pub mod tictactoe {
