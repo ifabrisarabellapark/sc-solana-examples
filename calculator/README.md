@@ -26,7 +26,29 @@ Set up your Solana Smart contract dev env. Install
   (for a 100% Rust development on Solana)
 
 
+---
+
 ### :anchor: Anchor
+
+#### Deploy to localhost
+The fastest and cheapest (free!) way to deploy a Solana contract is doing so on localhost. So set up a localhost blockchain cluster to run on your local machine
+```bash
+solana-test-validator --reset                                                 # setup a localhost blockchain cluster
+solana config set --url localhost                                             # set RPC URL to localhost
+solana config get                                                             # check settings
+anchor build                                                                  # build contract    
+anchor deploy                                                                 # deploy contract
+solana address -k target/deploy/calculator-keypair.json                       # set keypair path
+solana-keygen pubkey /Users/irenefabris/.config/solana/id.json                # fetch program pubkey
+
+# STOP HERE: now manually change the PROGRAM ID. 
+# Copy and paste the ID returned by the command above
+# and set it in your main lib.rs file AND in Anchor.toml
+anchor build                                                                  # rebuild the contract with the correct program id
+anchor deploy                                                                 # redeploy the contract with the correct program id
+```
+
+#### Deploy to devnet
 Solana has three main clusters: `mainnet-beta` (real funds), `devnet` (for developers), and `testnet` (mostly for validators). Devnet is a more realistic environment to test your application than localnet. Let's deploy on devnet:
 
  - obviously, you must first create a new Anchor project, running
