@@ -3,7 +3,7 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-calculator = "FzJeAJtHKAY3LJoDVpZjmbrmsMGp7wA8AhafHRugDfLZ"
+calculator = "72tyNt2vq4ySQsBS5GXxiPhJh3pSEE68FNcrm3vasxKf"
 
 [registry]
 url = "https://anchor.projectserum.com"

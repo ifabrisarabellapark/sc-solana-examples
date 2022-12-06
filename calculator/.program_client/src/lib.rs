@@ -1,11 +1,10 @@
 // DO NOT EDIT - automatically generated file
-pub mod casio_instruction {
+pub mod calculator_instruction {
     use trdelnik_client::*;
-    use calculator::{Create, Calculator};
     pub static PROGRAM_ID: Pubkey = Pubkey::new_from_array([
-        218u8, 7u8, 92u8, 178u8, 255u8, 94u8, 198u8, 129u8, 118u8, 19u8, 222u8, 83u8, 11u8, 105u8,
-        42u8, 135u8, 53u8, 71u8, 119u8, 105u8, 218u8, 71u8, 67u8, 12u8, 189u8, 129u8, 84u8, 51u8,
-        92u8, 74u8, 131u8, 39u8,
+        89u8, 162u8, 119u8, 162u8, 57u8, 107u8, 154u8, 54u8, 221u8, 229u8, 215u8, 68u8, 151u8,
+        213u8, 56u8, 78u8, 229u8, 124u8, 124u8, 203u8, 80u8, 38u8, 222u8, 57u8, 128u8, 18u8, 80u8,
+        254u8, 185u8, 58u8, 41u8, 118u8,
     ]);
     pub async fn create(
         client: &Client,

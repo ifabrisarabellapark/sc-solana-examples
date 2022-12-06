@@ -3568,9 +3568,9 @@ dependencies = [
 
 [[package]]
 name = "trdelnik-client"
-version = "0.2.0"
+version = "0.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8234b500c3463c6638abdd241f2454c98609e51a23ead9da9294f432d78ba3a7"
+checksum = "b29a5818ca6b762e0dd88403d61488ea4e48a0c7d5970a86aa977b3767ddb17c"
 dependencies = [
  "anchor-client",
  "anyhow",
@@ -3581,7 +3581,6 @@ dependencies = [
  "fehler",
  "futures",
  "heck 0.4.0",
- "lazy_static",
  "log",
  "quote 1.0.21",
  "rand 0.7.3",

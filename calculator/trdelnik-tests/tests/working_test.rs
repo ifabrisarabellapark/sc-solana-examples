@@ -1,5 +1,5 @@
 // use fehler::throws;
-// use program_client::{casio_instruction};
+// use program_client::calculator_instruction;
 // use trdelnik_client::{anyhow::Result, *};
 // use calculator;
 // // @todo: do not forget to import your program crate (also in the ../Cargo.toml)

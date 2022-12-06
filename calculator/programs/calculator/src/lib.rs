@@ -10,7 +10,7 @@ use anchor_lang::solana_program::{
 // The public key of your keypair IS the program id
 // declare_id!("FzJeAJtHKAY3LJoDVpZjmbrmsMGp7wA8AhafHRugDfLZ"); // testing program id
 // declare_id!("7Gjakg7gAYgCRr7p5RvuGoS1G5EMQxu9U61Swokse5bj"); // deployed program id
-declare_id!("FzJeAJtHKAY3LJoDVpZjmbrmsMGp7wA8AhafHRugDfLZ");
+declare_id!("72tyNt2vq4ySQsBS5GXxiPhJh3pSEE68FNcrm3vasxKf");
 
 #[program]
 pub mod casio {

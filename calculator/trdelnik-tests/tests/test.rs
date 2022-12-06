@@ -1,5 +1,5 @@
 use fehler::throws;
-use program_client::casio_instruction;
+use program_client::calculator_instruction;
 use trdelnik_client::{anyhow::Result, *};
 use calculator;
 
@@ -13,12 +13,30 @@ struct Fixture {
     mycalculator: Keypair,
 }
 
+const PROGRAM_KEYPAIRS: [[u8; 64]; 2] = [
+    [
+        249,58,221,247,231,9,219,29,233,175,32,213,16,176,192,13,71,23,79,52,49,61,101,219,131,
+        188,245,160,19,176,236,156,89,162,119,162,57,107,154,54,221,229,215,68,151,213,56,78,
+        229,124,124,203,80,38,222,57,128,18,80,254,185,58,41,118,
+    ],
+    [
+        61, 157, 195, 135, 80, 255, 3, 105, 232, 208, 28, 48, 69, 104, 225, 202, 144, 183, 0, 123,
+        108, 57, 165, 199, 168, 154, 194, 115, 18, 233, 99, 174, 5, 215, 176, 66, 255, 47, 77, 122,
+        100, 249, 156, 251, 44, 92, 36, 220, 226, 147, 127, 109, 198, 92, 1, 127, 95, 116, 186,
+        180, 149, 157, 170, 34,
+    ]];
+
 impl Fixture {
+    pub fn gen_keypair(n: usize) -> Keypair {
+        Keypair::from_bytes(&PROGRAM_KEYPAIRS[n]).unwrap()
+    }
+
     fn new() -> Self {
         Fixture {
-            client: Client::new(system_keypair(5)),
-            program: program_keypair(6),
-            mycalculator: keypair(7), //why 42?
+            client: Client::new(system_keypair(0)),
+            program: Self::gen_keypair(0),
+            // program: program_keypair(1),
+            mycalculator: keypair(42),
         }
     }
 
@@ -50,7 +68,7 @@ async fn init_fixture() -> Fixture {
     fixture.dep().await?;
 
     // init instruction call
-    casio_instruction::create(
+    calculator_instruction::create(
         &fixture.client,
         String::from("Calculator is on!"),
         fixture.mycalculator.pubkey(),
@@ -86,7 +104,7 @@ async fn test_nine() {
 //     // let default_fixture = Fixture::new();
 //     let fixture = init_fixture.await?;
 
-//     casio_instruction::multiply(
+//     calculator_instruction::multiply(
 //         &fixture.client,
 //         3i64,
 //         3i64,
