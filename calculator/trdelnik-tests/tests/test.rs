@@ -67,16 +67,16 @@ async fn init_fixture() -> Fixture {
     // deploy a tested program
     fixture.dep().await?;
 
-    // init instruction call
-    calculator_instruction::create(
-        &fixture.client,
-        String::from("Calculator is on!"),
-        fixture.mycalculator.pubkey(),
-        fixture.client.payer().pubkey(),
-        System::id(),
-        Some(fixture.mycalculator.clone()),
-    )
-    .await?;
+    // // init instruction call
+    // calculator_instruction::create(
+    //     &fixture.client,
+    //     String::from("Calculator is on!"),
+    //     fixture.mycalculator.pubkey(),
+    //     fixture.client.payer().pubkey(),
+    //     System::id(),
+    //     Some(fixture.mycalculator.clone()),
+    // )
+    // .await?;
 
     fixture
 }
@@ -98,23 +98,23 @@ async fn test_nine() {
     assert_eq!(myvar, 9u8);
 }
 
-// #[trdelnik_test]
-// #[ignore]
-// async fn test_multiply(#[future] init_fixture: Result<Fixture>) {
-//     // let default_fixture = Fixture::new();
-//     let fixture = init_fixture.await?;
+#[trdelnik_test]
+#[ignore]
+async fn test_multiply(#[future] init_fixture: Result<Fixture>) {
+    // let default_fixture = Fixture::new();
+    let fixture = init_fixture.await?;
 
-//     calculator_instruction::multiply(
-//         &fixture.client,
-//         3i64,
-//         3i64,
-//         fixture.mycalculator.pubkey(),
-//         None // since it's a PDA it needs no signature
-//     )
-//     .await?;
+    calculator_instruction::multiply(
+        &fixture.client,
+        3i64,
+        3i64,
+        fixture.mycalculator.pubkey(),
+        None // since it's a PDA it needs no signature
+    )
+    .await?;
 
-//     // check the test result
-//     let mycalc = fixture.get_calc().await?;
-//     // 3x3 = 9 is true
-//     assert_eq!(mycalc.result, 9);
-// }
+    // check the test result
+    let mycalc = fixture.get_calc().await?;
+    // 3x3 = 9 is true
+    assert_eq!(mycalc.result, 9);
+}
