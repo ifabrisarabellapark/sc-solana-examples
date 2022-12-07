@@ -1,9 +1,9 @@
 [package]
-name = "event_emitter"
+name = "helloworld_counter"
 version = "0.0.1"
 description = "Solana Program to emit test events"
 authors = ["Irene Fabris <irene@balloonbox.io>"]
-repository = "https://github.com/irene-bbox/sc-solana-event-listener.git"
+repository = "https://github.com/irene-bbox/sc-solana-examples.git"
 license = "Apache-2.0"
 edition = "2018"
 

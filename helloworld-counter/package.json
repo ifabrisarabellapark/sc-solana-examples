@@ -1,16 +1,16 @@
 {
-  "name": "event_emitter",
+  "name": "helloworld_counter",
   "version": "0.0.1",
-  "description": "A Solana program for hellowoeld counting and log event emitting",
+  "description": "A Solana program for helloworld counting and log event emitting",
   "main": "index.js",
   "scripts": {
     "test": "cargo test-bpf --manifest-path=./Cargo.toml",
     "build-sbf": "cargo build-sbf --manifest-path=./Cargo.toml --sbf-out-dir=dist/program",
-    "build-mv": "cargo build-sbf --manifest-path=./Cargo.toml --sbf-out-dir=dist/program && mv dist/program/solana_sbf_helloworld.so dist/program/helloworld.so"
-  },
+    "test-bpf": "cargo test-bpf --manifest-path=./Cargo.toml"
+},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/irene-bbox/sc-solana-event-listener.git"
+    "url": "git+https://github.com/irene-bbox/sc-solana-examples.git"
   },
   "keywords": [
     "helloword"

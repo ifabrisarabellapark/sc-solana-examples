@@ -1,23 +1,16 @@
-# Solana Contract | Event Emitter :satellite:
-A Solana Rust smart contract (or program) that emits log events, listens to emitted events, and performs an action whenever events got intercepted
+# Solana Programs 101 | Templates :hatched_chick:
+This Repo contains a handful of Solana smart contracts (programs). Use them for inspiration / boilerplates and build more complex smart contracts upon them. The featured templares are
 
 ---
 
-### Requirements
-Set up your development environment to write a Rust smart contract on Solana. Install:
+ - **calculator** <br/>
+   a math calculator as a Rust smart contract (ft. [Anchor](https://www.anchor-lang.com/) & [Trdelnik](https://github.com/Ackee-Blockchain/trdelnik)) <br/>
+   devnet program_id=`7Gjakg7gAYgCRr7p5RvuGoS1G5EMQxu9U61Swokse5bj`
 
- - latest [Rust](https://rustup.rs/) stable <br/>
-   (if Rust is already installed, upgrade it via `rustup upgrade`)
- - latest [Solana CLI](https://docs.solana.com/cli/install-solana-cli-tools)
+ - **helloworld-counter** <br/>
+   print 'helloword' & emits log events (built 100% in Rust) <br/>
+   devnet program_id=`5BPGqGMBL3ZpEw4F7gFeZPWYHbXeUuLtsKhug9W1vykJ`
 
-
-### How to Build
-```bash
-cargo build
-```
-
-### Logging
-During the program execution both the runtime and the program itself are logging statuses and error messages. Export the recommended log mask to format log messages emitted by the program:
-```bash
-export RUST_LOG=solana_runtime::system_instruction_processor=trace,solana_runtime::message_processor=info,solana_bpf_loader=debug,solana_rbpf=debug
-```
+ - **tictactoe** <br/>
+   play tic-tac-toe game (ft. [Anchor](https://www.anchor-lang.com/) & [Trdelnik](https://github.com/Ackee-Blockchain/trdelnik)) <br/>
+   devnet program_id=`CzgE1QHdwsigEvPMJXtNHNgEmjKBVhZn3sPHRrU7yKga`

@@ -1,10 +1,10 @@
 // Program enrypoint
 
 use solana_program::{
-    account_info::{AccountInfo},
+    pubkey::Pubkey,
     entrypoint,
     entrypoint::ProgramResult,
-    pubkey::Pubkey,
+    account_info::{AccountInfo},
 };
 
 
