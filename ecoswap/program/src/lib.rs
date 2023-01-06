@@ -26,12 +26,12 @@ pub fn process_instruction(
 
     // read accounts
     let acc_iter = &mut accounts.iter();
-    
+
     // 1. Keypair - the user requesting ECOV
     let user = next_account_info(acc_iter)?;
     // 2. Keypair - SPL-token account holder
     let vault = next_account_info(acc_iter)?;
-    // 3. Pubkey - ECOV recipient: user's ECOV Associated Token Account (ATA) - 
+    // 3. Pubkey - ECOV recipient: user's ECOV Associated Token Account (ATA)
     let user_ata = next_account_info(acc_iter)?;
     // 4. Pubkey - ECOV sender: SPL-token account (ATA)
     let vault_ata = next_account_info(acc_iter)?;
