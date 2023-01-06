@@ -7,6 +7,10 @@ This Repo contains a handful of Solana smart contracts (programs). Use them for 
    a math calculator as a Rust smart contract (ft. [Anchor](https://www.anchor-lang.com/) & [Trdelnik](https://github.com/Ackee-Blockchain/trdelnik)) <br/>
    devnet program_id=`7Gjakg7gAYgCRr7p5RvuGoS1G5EMQxu9U61Swokse5bj`
 
+ - **ecoswap** <br/>
+   unidirectional 1:1 SOL &rarr; ECOV tokenswap (Rust program & TypeScript client) <br/>
+   devnet program_id=`3q6Pn9Uu4zf8xPbRxVJHipxdvhn1YzvCrjo7xYogN8Mi`
+
  - **helloworld-counter** <br/>
    print 'helloword' & emits log events (built 100% in Rust) <br/>
    devnet program_id=`5BPGqGMBL3ZpEw4F7gFeZPWYHbXeUuLtsKhug9W1vykJ`

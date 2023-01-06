@@ -67,16 +67,16 @@ async fn init_fixture() -> Fixture {
     // deploy a tested program
     fixture.dep().await?;
 
-    // // init instruction call
-    // calculator_instruction::create(
-    //     &fixture.client,
-    //     String::from("Calculator is on!"),
-    //     fixture.mycalculator.pubkey(),
-    //     fixture.client.payer().pubkey(),
-    //     System::id(),
-    //     Some(fixture.mycalculator.clone()),
-    // )
-    // .await?;
+    // init instruction call
+    calculator_instruction::create(
+        &fixture.client,
+        String::from("Calculator is on!"),
+        fixture.mycalculator.pubkey(),
+        fixture.client.payer().pubkey(),
+        System::id(),
+        Some(fixture.mycalculator.clone()),
+    )
+    .await?;
 
     fixture
 }
