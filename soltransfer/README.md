@@ -15,11 +15,12 @@ PATH_SENDER_WALLET=<path_to_json_file_containing_system_wallet_keys>
 PATH_RECEIVER_WALLET=<path_to_json_file_containing_system_wallet_keys>
 ```
 
-> example of a valid path is PATH_SENDER_WALLET=`/Users/irenefabris/Documents/GitHub/sc-solana-examples/accounts/bathsheba.json`
+> example of a valid path is <br/>
+> PATH_SENDER_WALLET=`/Users/irenefabris/Documents/GitHub/sc-solana-examples/accounts/bathsheba.json`
 
 
-### Deploy
-Prerequisites: create 4 Solana File System Wallets. We'll save all wallets in the same folder, called `accounts`, so start by generating an empty `accounts` folder. Then enter the parent directory of the `accounts` folder and from there run
+### :gear: Deploy
+Prerequisites: create 4 Solana File System Wallets. We'll save all wallets in the same folder, called `accounts`, so start by generating an empty `accounts` folder. This prerequisite is already satisfied by the `accounts` folder present in the root directory of this Git repo. If you don't have file system wallets yet, create them now, running
 
 ```bash
 solana-keygen new --no-bip39-passphrase -o accounts/gigi.json
