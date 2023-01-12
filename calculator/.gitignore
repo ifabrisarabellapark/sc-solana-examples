@@ -8,3 +8,4 @@ test-ledger
 *_test.rs
 trdelnik-tests/tests/working_test.rs
 */working_test.rs
+Cargo.lock

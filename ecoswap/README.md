@@ -1,17 +1,18 @@
-# Solana Contract | EcoSwap :evergreen_tree:
+# Solana Program | EcoSwap :evergreen_tree:
 This directory contains a Solana Rust smart contract (program) that performs a unidirectional 1:1 SOL &rarr; ECOV tokenswap. The program does 2 actions concurrently:
  - transfer SOL from George's wallet(user) address to Bbox cash-in account
  - transfer ECOV from ECOV liquidity pool (ATA) to George's ATA
 > 'ECOV' is the arbitrary name of an SPL-token we previously minted on Solana.
+> '[ATA](https://spl.solana.com/associated-token-account)' stands for Associated Token Account, a special type of [PDAs](https://solanacookbook.com/core-concepts/pdas.html#facts) that holds SPL-tokens
 ---
 
 ### :package: Requirements
 Rust and npm or yarn.
 
-### :old_key: .env
+### :unlock: .env
 Create an `.env` file with these variables
 ```bash
-SOLANA_NETWORK="devnet"  #for devnet
+SOLANA_NETWORK=devnet  #for devnet
 
 # Any publickey: SOL recipient
 PAYEE=<publickey_to_cashin_sol_token>

@@ -1,0 +1,24 @@
+{
+    "name": "burntoken",
+    "version": "1.0.0",
+    "description": "Programmatically burn SPL-tokens",
+    "main": "index.js",
+    "scripts": {
+        "test": "Error: no test yet"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/BalloonBox-Inc/ecoverse-dao.git"
+    },
+    "author": "Irene Fabris",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/BalloonBox-Inc/ecoverse-dao/issues"
+    },
+    "homepage": "https://github.com/BalloonBox-Inc/ecoverse-dao#readme",
+    "dependencies": {
+        "@solana/spl-token": "^0.3.7",
+        "bs58": "^5.0.0",
+        "dotenv": "^16.0.3"
+    }
+}

@@ -1,4 +1,4 @@
-# Solana Contract | TicTacToe  :chess_pawn: :heavy_multiplication_x: 
+# Solana Program | TicTacToe  :chess_pawn: :heavy_multiplication_x: 
 This Solana Rust smart contract (or program) is a tictactoe game. The contract logic includes: tictactoe board setup, game ruleset, instructions allowing two players to play the game on chain.
 
 ---

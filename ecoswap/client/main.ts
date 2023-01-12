@@ -59,7 +59,7 @@ let programId: PublicKey;
  * This function passes instructions to the Solana Program
  * we custom-wrote and deployed earlier
  */
-async function swapBabySwap(
+async function swapSOLforECOV(
       user: Keypair,
       vault: Keypair,
       user_ata: PublicKey,
@@ -148,7 +148,7 @@ async function main() {
   payee = createPublicKeyFromStr(PAYEE);
 
   // Swap tokens
-  await swapBabySwap(
+  await swapSOLforECOV(
     user,
     vault,
     user_ata,
