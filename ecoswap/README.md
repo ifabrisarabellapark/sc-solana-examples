@@ -3,6 +3,7 @@ This directory contains a Solana Rust smart contract (program) that performs a u
  - transfer SOL from George's wallet(user) address to Bbox cash-in account
  - transfer ECOV from ECOV liquidity pool (ATA) to George's ATA
 > 'ECOV' is the arbitrary name of an SPL-token we previously minted on Solana.
+> '[ATA](https://spl.solana.com/associated-token-account)' stands for Associated Token Account, a special type of [PDAs](https://solanacookbook.com/core-concepts/pdas.html#facts) that holds SPL-tokens
 ---
 
 ### :package: Requirements

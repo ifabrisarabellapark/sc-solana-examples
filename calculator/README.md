@@ -1,5 +1,5 @@
 # Solana Program | Calculator :heavy_plus_sign: :heavy_division_sign:
-Construct your own calculator  in the form of a Solana Rust smart contract (or program). The calculator is able to perform these math operations: addition, multiplication, subtraction, division.
+Construct your own calculator  in the form of a Solana Rust Program. The calculator is able to perform some basic math operations (addition, multiplication, subtraction, division) on the blockchain!
 
 ---
 
