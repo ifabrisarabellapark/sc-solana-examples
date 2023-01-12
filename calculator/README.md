@@ -1,10 +1,10 @@
-# Solana Contract | Calculator :heavy_plus_sign: :heavy_division_sign:
+# Solana Program | Calculator :heavy_plus_sign: :heavy_division_sign:
 Construct your own calculator  in the form of a Solana Rust smart contract (or program). The calculator is able to perform these math operations: addition, multiplication, subtraction, division.
 
 ---
 
 ### :package: Requirements
-Set up your Solana Smart contract dev env. Install
+Set up your Solana Smart contract dev environment (no `.env` needed). Install
 
  - node.js & npm
  - latest *stable* [Rust](https://rustup.rs/) <br/>

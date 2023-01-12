@@ -1,4 +1,4 @@
-# Solana Contract | Event Emitter :satellite:
+# Solana Program | Event Emitter :satellite:
 A Solana Rust smart contract (or program) that emits log events, says "helloworld", and counts the number of helloworld-output.
 
 ---

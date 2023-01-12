@@ -1,11 +1,22 @@
 
-# SolTransfer Program :chipmunk:
+# Solana Program | SolTransfer :chipmunk:
 
  - What? This is an on-chain program on Solana, which interacts with Solana's native System Program<br/>
  - Why? Transfer an amount of SOL token from account A to account B.<br/>
  - How? The on-chain program is built in Rust, whereas the actual transfer is executed through a TypeScript frontend script.
 
 ---
+
+### :unlock: .env
+Create an `.env` file with these variables
+```bash
+SOLANA_NETWORK=devnet
+PATH_SENDER_WALLET=<path_to_json_file_containing_system_wallet_keys>
+PATH_RECEIVER_WALLET=<path_to_json_file_containing_system_wallet_keys>
+```
+
+> example of a valid path is PATH_SENDER_WALLET=`/Users/irenefabris/Documents/GitHub/sc-solana-examples/accounts/bathsheba.json`
+
 
 ### Deploy
 Prerequisites: create 4 Solana File System Wallets. We'll save all wallets in the same folder, called `accounts`, so start by generating an empty `accounts` folder. Then enter the parent directory of the `accounts` folder and from there run
