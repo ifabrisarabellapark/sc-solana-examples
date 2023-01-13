@@ -20,8 +20,8 @@ dotenv.config();
 /**
  * VARS
  */
-const TOKEN_TRANSFER_AMOUNT = 1;
 const SOLANA_NETWORK = process.env.SOLANA_NETWORK;
+const TOKEN_TRANSFER_AMOUNT = process.env.TOKEN_TRANSFER_AMOUNT;
 const TOKEN_MINT = process.env.TOKEN_MINT as string;
 const SENDER_ATA = process.env.SENDER_ATA as string;
 const SENDER_SECRETKEY = process.env.SENDER_SECRETKEY as string;

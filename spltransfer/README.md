@@ -9,6 +9,7 @@ This Repo contains the Rust codebase of an on-chain Solana Program and its corre
 Create an `.env` file with these variables
 ```bash
 SOLANA_NETWORK=devnet
+TOKEN_TRANSFER_AMOUNT=[float]
 TOKEN_MINT=<token_mint_account>
 SENDER_ATA=<sender_associated_token_account>
 SENDER_SECRETEKEY=<secretkey_of_token_sender>
