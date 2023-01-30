@@ -16,7 +16,7 @@ This Repo contains a handful of Solana smart contracts (programs). Use them for 
    built 100% in Rust
 
 -  :arrow_right: **pda** <br/>
-   WIP! Create a Program Derived Account, aka PDA <br/>
+   create a Program Derived Account, aka PDA <br/>
    Rust program & TypeScript client
 
 -  :arrow_right: **soltransfer** <br/>
