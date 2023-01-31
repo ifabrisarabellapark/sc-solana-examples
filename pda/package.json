@@ -1,0 +1,35 @@
+{
+  "name": "pda",
+  "version": "1.0.0",
+  "description": "Generate a Program Derived Address to manage ECOV tokens",
+  "author": "irene-bbox",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BalloonBox-Inc/ecoverse-dao.git"
+  },
+  "scripts": {
+    "clean": "./_cicd/cicd.sh clean",
+    "reset": "./_cicd/cicd.sh reset",
+    "build": "./_cicd/cicd.sh build",
+    "deploy": "./_cicd/cicd.sh deploy",
+    "reset-and-build": "./_cicd/cicd.sh reset-and-build",
+    "simulation": "ts-node ./client/main.ts"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.33.0",
+    "buffer-layout": "^1.2.2",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/bn.js": "^5.1.1",
+    "@types/node": "^15.6.1",
+    "prettier": "^2.3.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.2.4"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
